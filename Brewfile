@@ -21,7 +21,6 @@ cask "google-chrome"
 cask "messenger"
 cask "appcleaner"
 cask "cakebrew"
-cask "cakebrew"
 cask "microsoft-remote-desktop"
 cask "tunnelblick"
 cask "telegram"
@@ -35,8 +34,9 @@ cask "discord"
 cask "sdformatter"
 cask "unetbootin"
 cask "vlc"
-cask "1password"
 cask "jetbrains-toolbox"
+cask "handbrake"
+cask "cyberduck"
 
 # MAS-only apps
 # - Garageband
