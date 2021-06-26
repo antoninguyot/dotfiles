@@ -1,21 +1,21 @@
-source /usr/local/bin/antigen.sh
+source /usr/local/share/zsh-snap/znap.zsh
 
-antigen use oh-my-zsh
+PS1=$'%F{c}[%2~]%(?,%F{g},%F{r})$%f '
+znap prompt
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle command-not-found
+znap source zsh-users/zsh-syntax-highlighting
 
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-syntax-highlighting
+znap eval trapd00r/LS_COLORS 'dircolors -b LS_COLORS'
+znap source marlonrichert/zcolors
+znap eval zcolors "zcolors ${(q)LS_COLORS}"
 
-# Select theme
-antigen theme robbyrussell
+znap source zsh-users/zsh-completions
+znap source marlonrichert/zsh-autocomplete
 
-# Tell Antigen that you're done
-antigen apply
+path+=(
+   "/usr/local/sbin:~/.composer/vendor/bin/"
+)
 
-export LANG=en_US.UTF-8
-export PATH="/usr/local/sbin:~/.composer/vendor/bin/:$PATH"
-alias flushdns="sudo killall -HUP mDNSResponder"
+alias ls="exa"
+alias ll="exa -l"
+alias diga="dig -t A +short"
