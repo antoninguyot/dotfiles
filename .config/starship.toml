@@ -1,0 +1,15 @@
+add_newline = false
+command_timeout=5000
+
+[gcloud]
+disabled = true
+
+[kubernetes]
+disabled = false
+detect_extensions = ['yaml', 'yml']
+[kubernetes.context_aliases]
+'(.*prod.*)' = '⚠️  $1 ⚠️ '
+
+[docker_context]
+disabled = true
+
