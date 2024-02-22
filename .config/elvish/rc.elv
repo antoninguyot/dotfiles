@@ -1,9 +1,12 @@
 use github.com/zzamboni/elvish-modules/bang-bang
-use github.com/zzamboni/elvish-modules/alias
+use github.com/zzamboni/elvish-modules/terminal-title
 
 set-env GOPATH $E:HOME/.go
 set-env SSH_AUTH_SOCK $E:HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 set-env JAVA_HOME /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home
+
+# Use elvish for subprocesses spawned by any elvish term
+set-env SHELL /opt/homebrew/bin/elvish
 
 set paths = [/opt/homebrew/bin
 /opt/homebrew/sbin
@@ -38,10 +41,7 @@ fn mkcd {
   cd $dir
 }
 
-alias:new k kubectl
-alias:new kaf kubectl apply -f
-alias:new ip dig +short myip.opendns.com @resolver1.opendns.com
-alias:new ctx kubectx
-alias:new ll exa -lagh
-alias:new l exa -lagh
-alias:new tree exa -lagh --tree
+set edit:command-abbr['k'] = 'kubectl'
+set edit:command-abbr['kaf'] = 'kubectl apply -f'
+set edit:command-abbr['ll'] = 'eza -lagh"
+set edit:command-abbr['tree'] = 'eza -lagh --tree"
