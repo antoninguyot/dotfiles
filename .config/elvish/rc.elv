@@ -41,7 +41,21 @@ fn mkcd {
   cd $dir
 }
 
+fn ll {
+  |@args|
+  eza -lagh $@args
+}
+
+fn tree {
+ |@args|
+  eza -lagh --tree $@args
+}
+
 set edit:command-abbr['k'] = 'kubectl'
 set edit:command-abbr['kaf'] = 'kubectl apply -f'
-set edit:command-abbr['ll'] = 'eza -lagh"
-set edit:command-abbr['tree'] = 'eza -lagh --tree"
+set edit:command-abbr['ga'] = 'git add'
+set edit:command-abbr['gc'] = 'git commit'
+set edit:command-abbr['gph'] = 'git push'
+set edit:command-abbr['gpl'] = 'git pull'
+set edit:command-abbr['kubectx'] = 'kubectl config use-context'
+set edit:command-abbr['ctx'] = 'kubectl config use-context'
