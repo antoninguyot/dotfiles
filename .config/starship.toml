@@ -7,8 +7,9 @@ disabled = true
 [kubernetes]
 disabled = false
 detect_extensions = ['yaml', 'yml']
-[kubernetes.context_aliases]
-'(.*prod.*)' = '⚠️  $1 ⚠️ '
+contexts = [
+  {context_pattern = "(.*prod.*)", symbol = "⚠️ ⚠️ ⚠️ "}
+]
 
 [docker_context]
 disabled = true
