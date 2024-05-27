@@ -4,6 +4,8 @@ use github.com/zzamboni/elvish-modules/terminal-title
 set-env GOPATH $E:HOME/.go
 set-env SSH_AUTH_SOCK $E:HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 set-env JAVA_HOME /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home
+set-env KUBECONFIG (find ~/.kube -type f -name "*.yaml" | tr '\n' ':')
+set-env HOMEBREW_NO_AUTO_UPDATE 1
 
 # Use elvish for subprocesses spawned by any elvish term
 set-env SHELL /opt/homebrew/bin/elvish
@@ -11,6 +13,7 @@ set-env SHELL /opt/homebrew/bin/elvish
 set paths = [/opt/homebrew/bin
 /opt/homebrew/sbin
 /usr/local/bin
+/opt/homebrew/opt/ruby/bin
 ~/.bun/bin/
 ~/.composer/vendor/bin 
 ~/.local/bin
@@ -47,11 +50,22 @@ fn ll {
 }
 
 fn tree {
- |@args|
+  |@args|
   eza -lagh --tree $@args
 }
 
+fn hla {
+  |@args|
+  helm ls -A
+}
+
+fn s_client {
+  |hostname|
+  openssl s_client -connect (printf "%s:443" $hostname) -servername $hostname
+}
+
 set edit:command-abbr['k'] = 'kubectl'
+set edit:command-abbr['h'] = 'helm'
 set edit:command-abbr['kaf'] = 'kubectl apply -f'
 set edit:command-abbr['ga'] = 'git add'
 set edit:command-abbr['gc'] = 'git commit'
