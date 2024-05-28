@@ -3,6 +3,7 @@ brew "elvish"
 brew "starship"
 cask "alacritty"
 brew "zellij"
+brew "dockutil"
 
 tap "rsteube/homebrew-tap"
 brew "rsteube/tap/carapace"
