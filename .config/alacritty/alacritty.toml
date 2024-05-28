@@ -1,0 +1,9 @@
+[scrolling]
+history = 0
+
+[font]
+size = 13
+normal = { family = "Jetbrains Mono", style = "Regular"}
+
+[shell] 
+program = "/opt/homebrew/bin/zellij"
