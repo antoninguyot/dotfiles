@@ -1,6 +1,5 @@
 use github.com/zzamboni/elvish-modules/bang-bang
 use github.com/zzamboni/elvish-modules/terminal-title
-use readline-binding
 
 set-env GOPATH $E:HOME/.go
 set-env SSH_AUTH_SOCK $E:HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
@@ -65,6 +64,10 @@ fn s_client {
   openssl s_client -connect (printf "%s:443" $hostname) -servername $hostname
 }
 
+fn gitdiff {
+  git diff --name-only --relative --diff-filter=d | xargs bat --diff
+}
+
 set edit:command-abbr['k'] = 'kubectl'
 set edit:command-abbr['h'] = 'helm'
 set edit:command-abbr['kaf'] = 'kubectl apply -f'
@@ -74,3 +77,6 @@ set edit:command-abbr['gph'] = 'git push'
 set edit:command-abbr['gpl'] = 'git pull'
 set edit:command-abbr['kubectx'] = 'kubectl config use-context'
 set edit:command-abbr['ctx'] = 'kubectl config use-context'
+
+set edit:insert:binding[Alt-B] = { edit:move-dot-left-word }
+set edit:insert:binding[Alt-F] = { edit:move-dot-right-word }
