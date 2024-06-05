@@ -80,3 +80,4 @@ set edit:command-abbr['ctx'] = 'kubectl config use-context'
 
 set edit:insert:binding[Alt-B] = { edit:move-dot-left-word }
 set edit:insert:binding[Alt-F] = { edit:move-dot-right-word }
+set edit:insert:binding[Alt-Backspace] = { edit:kill-word-left }
