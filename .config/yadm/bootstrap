@@ -26,6 +26,10 @@ configure_alacritty() {
   ln -sf $HOME/.config/alacritty/alacritty.icns /Applications/Alacritty.app/Contents/Resources/alacritty.icns
 }
 
+configure_sudo() {
+  sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local > /dev/null
+}
+
 configure_dock() {
   # Dock > Automatically hide and show the Dock
   defaults write com.apple.dock autohide -bool true
@@ -73,6 +77,7 @@ if [ "$system_type" = "Darwin" ]; then
   install_brew
   configure_elvish
   configure_alacritty
+  configure_sudo
   configure_dock
   configure_macos
   
