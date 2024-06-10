@@ -7,6 +7,8 @@ set-env JAVA_HOME /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Co
 set-env KUBECONFIG (find ~/.kube -type f -name "*.yaml" -o -name "config" | tr '\n' ':')
 set-env HOMEBREW_NO_AUTO_UPDATE 1
 
+set-env STARSHIP_LOG "trace starship timings"
+
 # Use elvish for subprocesses spawned by any elvish term
 set-env SHELL /opt/homebrew/bin/elvish
 
