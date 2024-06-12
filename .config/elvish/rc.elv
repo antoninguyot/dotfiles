@@ -1,3 +1,4 @@
+use path
 use github.com/zzamboni/elvish-modules/bang-bang
 use github.com/zzamboni/elvish-modules/terminal-title
 
@@ -12,26 +13,25 @@ set-env STARSHIP_LOG "trace starship timings"
 # Use elvish for subprocesses spawned by any elvish term
 set-env SHELL /opt/homebrew/bin/elvish
 
-set paths = [/opt/homebrew/bin
-/opt/homebrew/sbin
-/usr/local/bin
-/opt/homebrew/opt/ruby/bin
-~/.bun/bin/
-~/.composer/vendor/bin 
-~/.local/bin
-~/Library/Python/3.8/bin 
-$E:GOPATH/bin
-/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
-/usr/sbin
-/usr/bin
-/sbin
-/bin
-/Users/antonin/Library/Python/2.7/bin
-/opt/homebrew/opt/ruby/bin
-$@paths]
+set paths = [
+  /opt/homebrew/bin
+  /opt/homebrew/sbin
+  /opt/homebrew/opt/ruby/bin
+  /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
+  /usr/local/bin
+  $E:HOME/.bun/bin/
+  $E:HOME/.composer/vendor/bin 
+  $E:GOPATH/bin
+  $@paths
+]
 
-# eval (starship init elvish)
-eval (slurp < ~/.config/elvish/starship.elv)
+each {|p|
+  if (not (path:is-dir &follow-symlink $p)) {
+    echo (styled "Warning: directory "$p" in $paths no longer exists." red)
+  }
+} $paths
+
+eval (starship init elvish)
 eval (carapace _carapace|slurp)
 
 # clear scrollback when clearing the screen
@@ -68,6 +68,12 @@ fn s_client {
 
 fn gitdiff {
   git diff --name-only --relative --diff-filter=d | xargs bat --diff
+}
+
+fn editor {
+  |dir|
+  cd $dir
+  zellij action new-tab -l ~/.config/zellij/editor_layout.kdl
 }
 
 set edit:command-abbr['k'] = 'kubectl'
