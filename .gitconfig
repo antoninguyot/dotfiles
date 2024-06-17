@@ -8,7 +8,7 @@
 
 [core]
 	autocrlf = input
-	excludesfile = /Users/antonin/.gitignore
+	excludesfile = ~/.gitignore
 
 [commit]
 	gpgsign = true
