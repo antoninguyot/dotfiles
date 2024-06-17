@@ -1,0 +1,18 @@
+[user]
+	email = antonin.guyot@icloud.com
+	name = antoninguyot
+	signingkey = ~/.ssh/id_dsa.pub
+
+[color]
+	ui = true
+
+[core]
+	autocrlf = input
+	excludesfile = /Users/antonin/.gitignore
+
+[commit]
+	gpgsign = true
+
+[gpg]
+	format = ssh
+
