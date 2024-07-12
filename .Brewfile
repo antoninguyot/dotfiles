@@ -4,6 +4,7 @@ brew "starship"
 cask "alacritty"
 brew "zellij"
 brew "dockutil"
+brew "git-delta"
 
 tap "rsteube/homebrew-tap"
 brew "rsteube/tap/carapace"

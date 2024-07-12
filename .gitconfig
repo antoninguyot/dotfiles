@@ -16,3 +16,21 @@
 [gpg]
 	format = ssh
 
+[init]
+	defaultBranch = master
+
+# diff config for delta (https://github.com/dandavison/delta)
+[core]
+	pager = LESS='FR' delta
+
+[interactive]
+	diffFilter = delta 
+
+[delta]
+	dark = true
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
