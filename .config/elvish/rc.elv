@@ -1,29 +1,7 @@
 use path
+use env
 use github.com/zzamboni/elvish-modules/bang-bang
 use github.com/zzamboni/elvish-modules/terminal-title
-
-set-env GOPATH $E:HOME/.go
-set-env SSH_AUTH_SOCK $E:HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
-set-env JAVA_HOME /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home
-set-env KUBECONFIG (find ~/.kube -type f -name "*.yaml" -o -name "config" | tr '\n' ':')
-
-set-env HOMEBREW_NO_ENV_HINTS 1
-set-env HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK 1
-
-# Use elvish for subprocesses spawned by any elvish term
-set-env SHELL /opt/homebrew/bin/elvish
-
-set paths = [
-  /opt/homebrew/bin
-  /opt/homebrew/sbin
-  /opt/homebrew/opt/ruby/bin
-  /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
-  /usr/local/bin
-  $E:HOME/.bun/bin/
-  $E:HOME/.composer/vendor/bin 
-  $E:GOPATH/bin
-  $@paths
-]
 
 each {|p|
   if (not (path:is-dir &follow-symlink $p)) {
@@ -70,12 +48,6 @@ fn gitdiff {
   git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }
 
-fn editor {
-  |dir|
-  cd $dir
-  zellij action new-tab -l ~/.config/zellij/editor_layout.kdl
-}
-
 set edit:command-abbr['k'] = 'kubectl'
 set edit:command-abbr['h'] = 'helm'
 set edit:command-abbr['kaf'] = 'kubectl apply -f'
@@ -89,3 +61,5 @@ set edit:command-abbr['ctx'] = 'kubectl config use-context'
 set edit:insert:binding[Alt-B] = { edit:move-dot-left-word }
 set edit:insert:binding[Alt-F] = { edit:move-dot-right-word }
 set edit:insert:binding[Alt-Backspace] = { edit:kill-word-left }
+set edit:insert:binding[Shift-Up] = { edit:lastcmd:start }
+set edit:lastcmd:binding[Shift-Up] = { edit:listing:accept }
