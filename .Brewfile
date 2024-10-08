@@ -10,6 +10,9 @@ brew "lazygit"
 tap "rsteube/homebrew-tap"
 brew "rsteube/tap/carapace"
 
+tap "oven-sh/bun"
+brew "bun"
+
 tap "homebrew/cask-fonts"
 cask "font-jetbrains-mono"
 
