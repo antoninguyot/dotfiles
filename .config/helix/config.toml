@@ -1,7 +1,7 @@
 theme = "dracula"
 
-[editor.file-picker]
-hidden = false
+[editor]
+bufferline = "multiple"
 
 [editor.soft-wrap]
 enable = true
