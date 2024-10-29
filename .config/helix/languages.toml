@@ -1,9 +1,15 @@
-# Wait for this to be merged in https://github.com/helix-editor/helix/pull/11135
+[language-server.astro-ls]
+command = "astro-ls"
+args = ["--stdio"]
+
 [[language]]
-name = "helm"
-grammar = "gotmpl"
-scope = "source.helm"
-roots = ["Chart.yaml"]
-comment-token = "#"
-language-servers = ["helm_ls"]
-file-types = [ { glob = "templates/*.yaml" }, { glob = "templates/*.yml" }, { glob = "templates/_*.tpl"}, { glob = "templates/NOTES.txt" } ]
+name = "astro"
+scope = "source.astro"
+injection-regex = "astro"
+file-types = ["astro"]
+language-servers = ["astro-ls"]
+formatter = { command = "prettier", args = ["--plugin", "prettier-plugin-astro", "--parser", "astro"] }
+auto-format = true
+
+[langage-server.json]
+command = "vscode-json-languageserver"

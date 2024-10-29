@@ -35,8 +35,12 @@ fn tree {
 }
 
 fn hla {
-  |@args|
   helm ls -A
+}
+
+fn rm {
+  |@args|
+  trash $@args  
 }
 
 fn s_client {

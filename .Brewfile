@@ -19,6 +19,8 @@ cask "font-jetbrains-mono"
 # Nice tools
 brew "eza"
 brew "bat"
+# See http://hasseg.org/blog/post/406/trash-files-from-the-os-x-command-line/ for why trash is superior
+brew "trash"
 
 # Kubernetes-related
 brew "kubectl"
