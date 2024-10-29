@@ -13,7 +13,7 @@ install_brew() {
 
   if [ -f "$HOME/.Brewfile" ]; then
     echo "Updating Homebrew bundle"
-    brew bundle --global
+    brew bundle --global --no-upgrade
   fi
 }
 
@@ -69,6 +69,13 @@ configure_macos() {
   # Tap to click
   defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
   defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+
+  # Double-click title bar to zoom
+  defaults write -globalDomain AppleActionOnDoubleClick -string "Zoom"
+
+  # Set fast key repeat rate
+  defaults write -globalDomain KeyRepeat -int 2
+
 }
 
 system_type=$(uname -s)
