@@ -10,6 +10,7 @@ set-env SHELL /opt/homebrew/bin/elvish
 set-env EDITOR hx
 # Set the $PATH env variable
 set paths = [
+  $E:HOME/.orbstack/bin
   /opt/homebrew/bin
   /opt/homebrew/sbin
   /opt/homebrew/opt/ruby/bin
