@@ -5,3 +5,13 @@ bufferline = "multiple"
 
 [editor.soft-wrap]
 enable = true
+
+[editor.file-picker]
+hidden = false
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+nbsp = "all"
+nnbsp = "all"
+newline = "none"
