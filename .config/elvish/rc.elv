@@ -1,7 +1,17 @@
 use path
 use env
-use github.com/zzamboni/elvish-modules/bang-bang
-use github.com/zzamboni/elvish-modules/terminal-title
+
+if (==s (get-env TERM) "xterm-ghostty") {
+  use ghostty-integration
+}
+
+if (has-env ZELLIJ) {
+    zellij action rename-tab (tilde-abbr $pwd)
+  set after-chdir = [{
+    |dir|
+    zellij action rename-tab (tilde-abbr $pwd)
+  }]
+}
 
 each {|p|
   if (not (path:is-dir &follow-symlink $p)) {
@@ -9,8 +19,11 @@ each {|p|
   }
 } $paths
 
-eval (starship init elvish)
+# eval (starship init elvish)
 eval (carapace _carapace|slurp)
+
+set edit:prompt = { styled (tilde-abbr $pwd) blue; styled ' ❯ ' green }
+set edit:rprompt = { echo "" }
 
 # clear scrollback when clearing the screen
 fn clear {
@@ -48,13 +61,19 @@ fn s_client {
   openssl s_client -connect (printf "%s:443" $hostname) -servername $hostname
 }
 
-fn gitdiff {
+fn git-diff {
   git diff --name-only --relative --diff-filter=d | xargs bat --diff
+}
+
+fn git-back {
+  git switch (path:base (git symbolic-ref refs/remotes/origin/HEAD))
+  git pull
 }
 
 set edit:command-abbr['k'] = 'kubectl'
 set edit:command-abbr['h'] = 'helm'
 set edit:command-abbr['kaf'] = 'kubectl apply -f'
+set edit:command-abbr['g'] = 'git'
 set edit:command-abbr['ga'] = 'git add'
 set edit:command-abbr['gc'] = 'git commit'
 set edit:command-abbr['gco'] = 'git checkout'
