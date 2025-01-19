@@ -1,0 +1,6 @@
+[auth]
+login_config_file = /Users/antonin/.config/gcloud/login_configs/evertrust.json
+
+[core]
+account = principal://iam.googleapis.com/locations/global/workforcePools/evertrust/subject/EiEFPcWup54x5JQ3kw2zvBQUddfPZDN7K8kj2Su6NOs
+
