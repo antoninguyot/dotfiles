@@ -57,8 +57,8 @@ fn rm {
 }
 
 fn s_client {
-  |hostname|
-  openssl s_client -connect (printf "%s:443" $hostname) -servername $hostname
+  |hostname &port=443|
+  openssl s_client -connect (printf "%s:%s" $hostname $port) -servername $hostname
 }
 
 fn git-diff {
