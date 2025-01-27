@@ -1,3 +1,8 @@
+# Use sane XDG defaults instead of crappy macOS Library
+set-env XDG_CONFIG_HOME $E:HOME/.config
+set-env XDG_DATA_HOME $E:HOME/.local/share
+set-env XDG_CACHE_HOME $E:HOME/.cache
+
 set-env GOPATH $E:HOME/.go
 set-env SSH_AUTH_SOCK $E:HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 set-env JAVA_HOME /opt/homebrew/Cellar/openjdk@11/11.0.20/libexec/openjdk.jdk/Contents/Home
