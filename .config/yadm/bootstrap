@@ -9,6 +9,7 @@ install_brew() {
   if ! command -v brew >/dev/null 2>&1; then
     echo "Installing Homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+		export PATH="/opt/homebrew/bin:$PATH"
   fi
 
   if [ -f "$HOME/.Brewfile" ]; then
@@ -44,6 +45,7 @@ configure_dock() {
   dockutil --no-restart --add "/Applications/Calendar.app"
   dockutil --no-restart --add "/Applications/Music.app"
   dockutil --no-restart --add "/Applications/Alacritty.app"
+  dockutil --no-restart --add "/Applications/IntelliJ IDEA.app"
   dockutil --no-restart --add "~/Downloads" --view fan --display stack
 }
 
