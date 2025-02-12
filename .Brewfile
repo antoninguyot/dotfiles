@@ -1,5 +1,7 @@
 # Environment roast
+brew "yadm"
 brew "elvish"
+brew "helix"
 brew "starship"
 cask "alacritty"
 brew "zellij"
@@ -36,15 +38,9 @@ brew "jq"
 
 cask "orbstack"
 cask "hiddenbar"
-cask "iina"
-cask "google-cloud-sdk"
 cask "maccy"
-cask "1password"
 
-cask "phpstorm"
 cask "intellij-idea"
-cask "goland"
 
 mas "AdGuard for Safari", id: 1440147259
-mas "Passepartout", id: 1433648537
 mas "JSON Peep for Safari", id: 1458969831
