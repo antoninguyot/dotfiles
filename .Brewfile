@@ -2,7 +2,6 @@
 brew "yadm"
 brew "elvish"
 brew "helix"
-brew "starship"
 cask "alacritty"
 brew "zellij"
 brew "dockutil"
