@@ -76,11 +76,6 @@ fn hla {
   helm ls -A
 }
 
-fn rm {
-  |@args|
-  trash $@args  
-}
-
 fn s_client {
   |hostname &port=443|
   openssl s_client -connect (printf "%s:%s" $hostname $port) -servername $hostname
