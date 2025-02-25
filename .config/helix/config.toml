@@ -1,7 +1,12 @@
-theme = "dracula"
+theme = "darcula"
 
 [editor]
 bufferline = "multiple"
+end-of-line-diagnostics = "hint"
+cursorline = true
+
+[editor.inline-diagnostics]
+cursor-line = "error"
 
 [editor.soft-wrap]
 enable = true
@@ -15,3 +20,9 @@ tab = "all"
 nbsp = "all"
 nnbsp = "all"
 newline = "none"
+
+[editor.statusline]
+left = ["version-control", "mode", "spinner"]
+
+[editor.lsp]
+display-inlay-hints = true
