@@ -5,8 +5,8 @@ keybinds {
     bind "Ctrl f" {
       Run "/opt/homebrew/bin/lazygit" {
       	close_on_exit true
+      	floating true
       };
-      TogglePaneEmbedOrFloating;
     }
   }
 }

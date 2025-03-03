@@ -6,7 +6,7 @@ size = 14
 normal = { family = "Jetbrains Mono", style = "Regular"}
 
 [terminal.shell] 
-program = "/opt/homebrew/bin/zellij"
+program = "/opt/homebrew/bin/elvish"
 
 [keyboard]
 bindings = [

@@ -5,20 +5,6 @@ if (==s (get-env TERM) "xterm-ghostty") {
   use ghostty-integration
 }
 
-if (has-env ZELLIJ) {
-    zellij action rename-tab (tilde-abbr $pwd)
-  set after-chdir = [{
-    |dir|
-    zellij action rename-tab (tilde-abbr $pwd)
-  }]
-}
-
-each {|p|
-  if (not (path:is-dir &follow-symlink $p)) {
-    echo (styled "Warning: directory "$p" in $paths no longer exists." red)
-  }
-} $paths
-
 eval (carapace _carapace|slurp)
 
 # Prompt
@@ -99,3 +85,7 @@ fn kubectx {
   }
 }
 
+if (not (has-env ZELLIJ)) {
+  zellij
+  exit
+}
