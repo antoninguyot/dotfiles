@@ -13,6 +13,8 @@ set-env HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK 1
 set-env SHELL /opt/homebrew/bin/elvish
 # Use helix as the default editor
 set-env EDITOR hx
+# Configure Oras cache
+set-env ORAS_CACHE $E:HOME/.oras/cache
 # Set the $PATH env variable
 set paths = [
   $E:HOME/.orbstack/bin
