@@ -22,7 +22,7 @@ nnbsp = "all"
 newline = "none"
 
 [editor.statusline]
-left = ["version-control", "mode", "spinner"]
+left = ["version-control", "file-name", "mode", "spinner"]
 
 [editor.lsp]
 display-inlay-hints = true
