@@ -1,10 +1,6 @@
 use path
 use env
 
-if (==s (get-env TERM) "xterm-ghostty") {
-  use ghostty-integration
-}
-
 eval (carapace _carapace|slurp)
 
 # Prompt
@@ -85,7 +81,11 @@ fn kubectx {
   }
 }
 
-if (not (has-env ZELLIJ)) {
+if (and (==s (get-env TERM) "alacritty") (not (has-env ZELLIJ))) {
   zellij
   exit
 }
+if (==s (get-env TERM) "xterm-ghostty") {
+  use ghostty-integration
+}
+
