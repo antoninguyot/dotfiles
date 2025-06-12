@@ -14,7 +14,8 @@ install_brew() {
 
   if [ -f "$HOME/.Brewfile" ]; then
     echo "Updating Homebrew bundle"
-    brew bundle --global --no-upgrade
+    brew bundle --global
+    brew bundle cleanup --global --force
   fi
 }
 
