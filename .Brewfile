@@ -2,7 +2,6 @@
 brew "yadm"
 brew "elvish"
 brew "helix"
-cask "alacritty"
 cask "ghostty"
 brew "zellij"
 brew "dockutil"
@@ -17,6 +16,7 @@ brew "bun"
 
 tap "homebrew/cask-fonts"
 cask "font-jetbrains-mono"
+cask "font-monaspace"
 
 # Nice tools
 brew "eza"
@@ -26,6 +26,7 @@ brew "trash"
 brew "httpie"
 cask "iina"
 cask "secretive"
+cask "keyboard-cleaner"
 
 # Kubernetes-related
 brew "kubectl"
@@ -43,10 +44,12 @@ brew "jq"
 brew "yq"
 brew "mongosh"
 cask "visual-studio-code"
+cask "mailpit"
 
 cask "orbstack"
 cask "hiddenbar"
 cask "maccy"
+cask "firefox"
 
 mas "AdGuard for Safari", id: 1440147259
 mas "JSON Peep for Safari", id: 1458969831

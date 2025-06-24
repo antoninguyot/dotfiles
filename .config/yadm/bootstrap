@@ -23,11 +23,6 @@ configure_elvish() {
   elvish $HOME/.config/elvish/bootstrap.elv
 }
 
-configure_alacritty() {
-  # Remove that ugly default icon
-  ln -sf $HOME/.config/alacritty/alacritty.icns /Applications/Alacritty.app/Contents/Resources/alacritty.icns
-}
-
 configure_sudo() {
   sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local > /dev/null
 }
@@ -45,8 +40,7 @@ configure_dock() {
   dockutil --no-restart --add "/Applications/Mail.app"
   dockutil --no-restart --add "/Applications/Calendar.app"
   dockutil --no-restart --add "/Applications/Music.app"
-  dockutil --no-restart --add "/Applications/Alacritty.app"
-  dockutil --no-restart --add "/Applications/IntelliJ IDEA.app"
+  dockutil --no-restart --add "/Applications/Visual Studio Code.app"
   dockutil --no-restart --add "~/Downloads" --view fan --display stack
 }
 
@@ -86,7 +80,6 @@ system_type=$(uname -s)
 if [ "$system_type" = "Darwin" ]; then
   install_brew
   configure_elvish
-  configure_alacritty
   configure_sudo
   configure_dock
   configure_macos
