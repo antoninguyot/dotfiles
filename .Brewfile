@@ -21,11 +21,14 @@ cask "font-monaspace"
 # Nice tools
 brew "eza"
 brew "bat"
+brew "glow"
 # See http://hasseg.org/blog/post/406/trash-files-from-the-os-x-command-line/ for why trash is superior
 brew "trash"
 brew "httpie"
 cask "iina"
 cask "secretive"
+cask "secretive"
+cask "keka"
 cask "keyboard-cleaner"
 
 # Kubernetes-related
