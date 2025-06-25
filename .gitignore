@@ -4,5 +4,11 @@
 # IntelliJ
 .idea/
 
+# VS CODE
+.vscode/
+
 # Terraform
 .terraform/
+
+# AI stuff
+.claude/settings.local.json
