@@ -28,7 +28,7 @@ set paths = [
   /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
   /usr/local/bin
   $E:HOME/.local/bin
-  $E:HOME/.config/composer/vendor/bin 
+  $E:HOME/.composer/vendor/bin 
   $E:GOPATH/bin
   $@paths
 ]
