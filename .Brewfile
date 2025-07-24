@@ -20,6 +20,7 @@ cask "font-monaspace"
 
 # Nice tools
 brew "eza"
+brew "dust"
 brew "bat"
 brew "glow"
 # See http://hasseg.org/blog/post/406/trash-files-from-the-os-x-command-line/ for why trash is superior
