@@ -28,8 +28,6 @@ brew "trash"
 brew "httpie"
 cask "iina"
 cask "secretive"
-cask "secretive"
-cask "keka"
 cask "keyboard-cleaner"
 
 # Kubernetes-related
@@ -37,6 +35,7 @@ brew "kubectl"
 brew "helm"
 brew "helm-ls"
 brew "k9s"
+brew "teleport"
 
 # Programming tools
 brew "git"
@@ -47,13 +46,23 @@ brew "go"
 brew "jq"
 brew "yq"
 brew "mongosh"
+brew "mailpit"
+brew "vexctl"
 cask "visual-studio-code"
 cask "mailpit"
+cask "cyberduck"
+
+tap "aquasecurity/trivy"
+brew "aquasecurity/trivy/trivy"
 
 cask "orbstack"
 cask "hiddenbar"
 cask "maccy"
 cask "firefox"
+cask "chatgpt"
+cask "tableplus"
 
 mas "AdGuard for Safari", id: 1440147259
 mas "JSON Peep for Safari", id: 1458969831
+mas "Collections", id: 1568395334
+mas "Infuse", id: 1136220934
