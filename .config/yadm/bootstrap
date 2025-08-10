@@ -58,6 +58,7 @@ configure_macos() {
 
   # Finder > View > As List
   defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+  defaults write com.apple.finder FK_DefaultViewStyle -string "Nlsv"
 
   # Show all filename extensions
   defaults write NSGlobalDomain AppleShowAllExtensions -bool true

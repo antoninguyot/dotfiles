@@ -1,0 +1,4 @@
+% brew
+
+# Update software on this device
+brew bundle --global --cleanup --verbose

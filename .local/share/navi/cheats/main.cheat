@@ -1,0 +1,7 @@
+% macos
+
+# Remove .DS_Store files 
+find ~ -name '.DS_Store' -type f -delete
+
+# Clear DNS cache
+sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder

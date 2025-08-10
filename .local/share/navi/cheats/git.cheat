@@ -1,0 +1,10 @@
+% git
+
+# Display current diff
+git diff --name-only --relative --diff-filter=d | xargs bat --diff
+
+# Get back to main branch
+```bash
+git switch "$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
+git pull
+```

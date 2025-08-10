@@ -3,18 +3,17 @@ brew "yadm"
 brew "elvish"
 brew "helix"
 cask "ghostty"
-brew "zellij"
 brew "dockutil"
 brew "git-delta"
 brew "lazygit"
+brew "navi"
 
 tap "rsteube/homebrew-tap"
 brew "rsteube/tap/carapace"
 
 tap "oven-sh/bun"
-brew "bun"
+brew "oven-sh/bun/bun"
 
-tap "homebrew/cask-fonts"
 cask "font-jetbrains-mono"
 cask "font-monaspace"
 
@@ -27,7 +26,6 @@ brew "glow"
 brew "trash"
 brew "httpie"
 cask "iina"
-cask "secretive"
 cask "keyboard-cleaner"
 
 # Kubernetes-related
@@ -48,8 +46,8 @@ brew "yq"
 brew "mongosh"
 brew "mailpit"
 brew "vexctl"
+brew "gh"
 cask "visual-studio-code"
-cask "mailpit"
 cask "cyberduck"
 
 tap "aquasecurity/trivy"

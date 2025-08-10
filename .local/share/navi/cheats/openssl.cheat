@@ -1,0 +1,16 @@
+% openssl
+
+# Generate cert and key
+openssl req -x509 -newkey <key_type> -keyout key.pem -out cert.pem -sha256 -days 3650 -nodes -subj "/<subj>/" --- --allow-extra
+
+$ key_type: echo 'rsa:2048 rsa:4096' | tr ' ' '\n'
+
+# Decode certificate
+openssl x509 -in <certificate> -text -noout
+
+$ certificate: ls -1
+
+# Connect to a host using s_client
+openssl s_client -connect <hostname>:<port> -servername <hostname>
+
+$ port: echo '443'

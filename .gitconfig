@@ -1,7 +1,7 @@
 [user]
 	email = antonin.guyot@icloud.com
 	name = antoninguyot
-	signingkey = ~/.ssh/id_dsa.pub
+	signingkey = ~/.ssh/id.pub
 
 [color]
 	ui = true

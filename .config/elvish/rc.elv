@@ -54,37 +54,6 @@ fn tree {
   eza -lagh --tree $@args
 }
 
-fn hla {
-  helm ls -A
-}
-
-fn s_client {
-  |hostname &port=443|
-  openssl s_client -connect (printf "%s:%s" $hostname $port) -servername $hostname
-}
-
-fn git-diff {
-  git diff --name-only --relative --diff-filter=d | xargs bat --diff
-}
-
-fn git-back {
-  git switch (path:base (git symbolic-ref refs/remotes/origin/HEAD))
-  git pull
-}
-
-fn kubectx {
-  |@args|
-  if (== (count $args) 0) {
-    kubectl config get-contexts
-  } else {
-    kubectl config use-context $@args
-  }
-}
-
-if (and (==s (get-env TERM) "alacritty") (not (has-env ZELLIJ))) {
-  zellij
-  exit
-}
 if (==s (get-env TERM) "xterm-ghostty") {
   use ghostty-integration
 }

@@ -1,0 +1,12 @@
+% kubernetes
+
+# Connect to a Teleport Kubernetes cluster
+tsh proxy kube <cluster> --exec
+
+$ cluster: tsh kube ls --- --header-lines 1
+
+# Switch context
+kubectl config use-context <context>
+
+$ context: kubectl config get-contexts -o name
+
