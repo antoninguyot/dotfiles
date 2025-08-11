@@ -2,3 +2,6 @@
 
 # Update software on this device
 brew bundle --global --cleanup --verbose
+
+# Preview software that would be uninstalled
+brew bundle cleanup --global
