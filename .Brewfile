@@ -24,7 +24,7 @@ brew "bat"
 brew "glow"
 # See http://hasseg.org/blog/post/406/trash-files-from-the-os-x-command-line/ for why trash is superior
 brew "trash"
-brew "httpie"
+brew "mas"
 cask "iina"
 cask "keyboard-cleaner"
 
@@ -34,6 +34,7 @@ brew "helm"
 brew "helm-ls"
 brew "k9s"
 brew "teleport"
+brew "dive"
 
 # Programming tools
 brew "git"
@@ -49,6 +50,16 @@ brew "vexctl"
 brew "gh"
 cask "visual-studio-code"
 cask "cyberduck"
+cask "bruno"
+cask "utm"
+
+tap "tink-crypto/tink-tinkey"
+brew "tinkey"
+
+# Fun stuff
+brew "lolcat"
+brew "cowsay"
+brew "fortune"
 
 tap "aquasecurity/trivy"
 brew "aquasecurity/trivy/trivy"
