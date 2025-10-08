@@ -42,6 +42,7 @@ brew "php"
 brew "composer"
 brew "httpie"
 brew "go"
+brew "delve"
 brew "jq"
 brew "yq"
 brew "mongosh"
@@ -75,3 +76,4 @@ mas "AdGuard for Safari", id: 1440147259
 mas "JSON Peep for Safari", id: 1458969831
 mas "Collections", id: 1568395334
 mas "Infuse", id: 1136220934
+mas "Windows App", id: 1295203466

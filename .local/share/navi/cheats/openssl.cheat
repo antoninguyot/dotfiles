@@ -1,14 +1,19 @@
 % openssl
 
 # Generate cert and key
-openssl req -x509 -newkey <key_type> -keyout key.pem -out cert.pem -sha256 -days 3650 -nodes -subj "/<subj>/" --- --allow-extra
+openssl req -x509 -newkey <key_type> -keyout key.pem -out cert.pem -days 3650 -nodes -subj "/<subj>/"
 
 $ key_type: echo 'rsa:2048 rsa:4096' | tr ' ' '\n'
 
 # Decode certificate
 openssl x509 -in <certificate> -text -noout
 
-$ certificate: ls -1
+$ certificate: ls -a | grep -e "\(.pem\)" || ls -a
+
+# Decode CRL
+openssl crl -in <crl> -text -noout
+
+$ crl: ls -a | grep -e "\(.crl\)" || ls -a
 
 # Connect to a host using s_client
 openssl s_client -connect <hostname>:<port> -servername <hostname>
