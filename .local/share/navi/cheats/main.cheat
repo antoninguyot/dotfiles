@@ -5,3 +5,6 @@ find ~ -name '.DS_Store' -type f -delete
 
 # Clear DNS cache
 sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+
+# Find whats listening on port
+sudo lsof -i -P | grep LISTEN | grep :<port>
