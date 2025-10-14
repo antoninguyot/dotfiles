@@ -25,6 +25,7 @@ brew "glow"
 # See http://hasseg.org/blog/post/406/trash-files-from-the-os-x-command-line/ for why trash is superior
 brew "trash"
 brew "mas"
+brew "hyperfine"
 cask "iina"
 cask "keyboard-cleaner"
 
