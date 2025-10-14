@@ -29,6 +29,9 @@ brew "hyperfine"
 cask "iina"
 cask "keyboard-cleaner"
 
+# AI tools
+brew "codex"
+
 # Kubernetes-related
 brew "kubectl"
 brew "helm"
