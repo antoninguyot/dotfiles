@@ -1,5 +1,5 @@
 name:  yadm
-description: output the last part of files
+description: yadm completions
 parsing: disabled
 completion:
   positionalany: ["$carapace.bridge.Bash([yadm])"]
