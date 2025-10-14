@@ -14,15 +14,11 @@ export GOPATH="$HOME/.go"
 export EDITOR="hx"
 export PATH="$HOME/.orbstack/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/ruby/bin:/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$HOME/.local/bin:$HOME/.composer/vendor/bin:$GOPATH/bin:$PATH"
 
-#export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
-#zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-#source <(carapace _carapace)
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
+alias ll='eza -lagh'
+alias tree='eza -lagh --tree'
