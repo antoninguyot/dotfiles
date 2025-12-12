@@ -135,6 +135,39 @@ configure_ssh() {
   esac
 }
 
+configure_github() {
+  if ! command -v gh >/dev/null 2>&1; then
+    echo "gh not found; skipping GitHub setup"
+    return 0
+  fi
+
+  if ! gh auth status -h github.com >/dev/null 2>&1; then
+    if [ -n "${GH_TOKEN:-}" ]; then
+      echo "Authenticating gh with GH_TOKEN"
+      printf "%s" "$GH_TOKEN" | gh auth login -h github.com --with-token
+    else
+      echo "Logging in to GitHub via gh (may open a browser)..."
+      gh auth login -h github.com --git-protocol ssh --web
+    fi
+  fi
+
+  if [ ! -f "$HOME/.ssh/id.pub" ]; then
+    return 0
+  fi
+
+  fingerprint="$(ssh-keygen -lf "$HOME/.ssh/id.pub" 2>/dev/null | awk '{print $2}')"
+  if [ -n "$fingerprint" ] && gh ssh-key list 2>/dev/null | grep -Fq "$fingerprint"; then
+    return 0
+  fi
+
+  user_name="$(id -un 2>/dev/null || echo "${USER:-user}")"
+  host_name="$(hostname 2>/dev/null || echo "host")"
+  title="${user_name}@${host_name}"
+
+  echo "Uploading SSH key to GitHub: $HOME/.ssh/id.pub"
+  gh ssh-key add "$HOME/.ssh/id.pub" --title "$title" >/dev/null 2>&1 || true
+}
+
 system_type=$(uname -s)
 
 if [ "$system_type" = "Darwin" ]; then
@@ -142,10 +175,10 @@ if [ "$system_type" = "Darwin" ]; then
   configure_sudo
   configure_dock
   configure_macos
-  configure_ssh
   
   killall Dock
   killall Finder
 fi
 
 configure_ssh
+configure_github
