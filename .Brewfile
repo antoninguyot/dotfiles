@@ -7,6 +7,7 @@ brew "dockutil"
 brew "git-delta"
 brew "lazygit"
 brew "navi"
+brew "zsh-syntax-highlighting"
 
 tap "rsteube/homebrew-tap"
 brew "rsteube/tap/carapace"
@@ -28,9 +29,10 @@ brew "mas"
 brew "hyperfine"
 cask "iina"
 cask "keyboard-cleaner"
+cask "appcleaner"
 
 # AI tools
-brew "codex"
+cask "codex"
 
 # Kubernetes-related
 brew "kubectl"
@@ -39,6 +41,7 @@ brew "helm-ls"
 brew "k9s"
 brew "teleport"
 brew "dive"
+brew "kind"
 
 # Programming tools
 brew "git"
@@ -53,13 +56,18 @@ brew "mongosh"
 brew "mailpit"
 brew "vexctl"
 brew "gh"
+brew "jwt-cli"
+brew "pwgen"
 cask "visual-studio-code"
+cask "zed"
 cask "cyberduck"
 cask "bruno"
 cask "utm"
 
+# Work
 tap "tink-crypto/tink-tinkey"
 brew "tinkey"
+cask "linear-linear"
 
 # Fun stuff
 brew "lolcat"
@@ -72,7 +80,8 @@ brew "aquasecurity/trivy/trivy"
 cask "orbstack"
 cask "hiddenbar"
 cask "maccy"
-cask "firefox"
+cask "google-chrome"
+cask "chatgpt-atlas"
 cask "chatgpt"
 cask "tableplus"
 
