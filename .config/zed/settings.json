@@ -7,13 +7,24 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "agent_servers": {
-    "codex": {
-      "command": "codex-acp",
-      "args": [],
-      "env": {}
+  "languages": {
+    "PHP": {
+      "language_servers": ["intelephense", "!phpactor"],
+      "formatter": {
+        "external": {
+          "command": "vendor/bin/pint"
+        }
+      }
+    },
+    "Vue.js": {
+      "language_servers": ["vue-language-server", "vtsls", "..."],
+      "format_on_save": "on"
     }
   },
+  "completions": {
+    "lsp_fetch_timeout_ms": 1000
+  },
+  "vim_mode": false,
   "auto_install_extensions": {
     "asciidoc": true,
     "terraform": true,
@@ -43,8 +54,18 @@
     "diagnostics": false,
     "metrics": false
   },
-  "helix_mode": true,
+  "helix_mode": false,
   "ui_font_size": 16,
   "buffer_font_size": 16,
-  "theme": "One Dark"
+  "theme": "One Dark",
+  "file_types": {
+    "Helm": [
+      "**/templates/**/*.tpl",
+      "**/templates/**/*.yaml",
+      "**/templates/**/*.yml",
+      "**/helmfile.d/**/*.yaml",
+      "**/helmfile.d/**/*.yml",
+      "**/values*.yaml"
+    ]
+  }
 }

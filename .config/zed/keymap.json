@@ -24,19 +24,9 @@
     }
   },
   {
-    "bindings": {
-      "cmd-t": "git::Pull"
-    }
-  },
-  {
     "context": "Workspace",
     "bindings": {
       "cmd-t": null
-    }
-  },
-  {
-    "bindings": {
-      "cmd-shift-k": "git::Push"
     }
   }
 ]
