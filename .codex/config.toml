@@ -1,0 +1,16 @@
+model = "gpt-5.2"
+model_reasoning_effort = "high"
+sandbox_mode = "workspace-write"
+
+[sandbox_workspace_write]
+network_access = true
+writable_roots = ["~/Library/Caches", "~/go/pkg/mod/cache"]
+
+[features]
+web_search_request = true
+# unified_exec = true
+# streamable_shell = true
+# apply_patch_freeform = true
+
+[projects."~/Developer"]
+trust_level = "trusted"
