@@ -14,13 +14,8 @@ install_brew() {
 
   if [ -f "$HOME/.Brewfile" ]; then
     echo "Updating Homebrew bundle"
-    brew bundle --global
-    brew bundle cleanup --global --force
+    brew bundle --global --cleanup
   fi
-}
-
-configure_elvish() {
-  elvish $HOME/.config/elvish/bootstrap.elv
 }
 
 configure_sudo() {
@@ -75,18 +70,82 @@ configure_macos() {
 
   # Set fast key repeat rate
   defaults write -globalDomain KeyRepeat -int 2
+}
 
+configure_ssh() {
+  if ! command -v ssh-keygen >/dev/null 2>&1; then
+    echo "ssh-keygen not found; skipping SSH setup"
+    return 0
+  fi
+
+  if [ ! -d "$HOME/.ssh" ]; then
+    mkdir -p "$HOME/.ssh"
+  fi
+  chmod 700 "$HOME/.ssh" 2>/dev/null || true
+
+  if [ ! -f "$HOME/.ssh/id" ]; then
+    user_name="$(id -un 2>/dev/null || echo "${USER:-user}")"
+    host_name="$(hostname 2>/dev/null || echo "host")"
+    comment="${user_name}@${host_name}"
+
+    echo "Generating SSH key: $HOME/.ssh/id"
+    ssh-keygen -t ed25519 -f "$HOME/.ssh/id" -N "" -C "$comment"
+  fi
+
+  if [ -f "$HOME/.ssh/id" ] && [ ! -f "$HOME/.ssh/id.pub" ]; then
+    echo "Deriving SSH public key: $HOME/.ssh/id.pub"
+    ssh-keygen -y -f "$HOME/.ssh/id" > "$HOME/.ssh/id.pub"
+  fi
+
+  chmod 600 "$HOME/.ssh/id" 2>/dev/null || true
+  chmod 644 "$HOME/.ssh/id.pub" 2>/dev/null || true
+
+  if ! command -v yadm >/dev/null 2>&1; then
+    return 0
+  fi
+
+  origin_url="$(yadm remote get-url origin 2>/dev/null || true)"
+  if [ -z "$origin_url" ]; then
+    return 0
+  fi
+
+  case "$origin_url" in
+    git@*:*|ssh://*)
+      return 0
+      ;;
+    http://*|https://*)
+      host_and_path="${origin_url#http://}"
+      host_and_path="${host_and_path#https://}"
+      host="${host_and_path%%/*}"
+      case "$host" in
+        *@*) host="${host##*@}" ;;
+      esac
+
+      if [ "$host_and_path" = "$host" ]; then
+        echo "Could not parse yadm origin URL: $origin_url"
+        return 0
+      fi
+
+      path="${host_and_path#*/}"
+      ssh_url="git@${host}:${path}"
+
+      echo "Switching yadm origin to SSH: $ssh_url"
+      yadm remote set-url origin "$ssh_url"
+      ;;
+  esac
 }
 
 system_type=$(uname -s)
 
 if [ "$system_type" = "Darwin" ]; then
   install_brew
-  configure_elvish
   configure_sudo
   configure_dock
   configure_macos
+  configure_ssh
   
   killall Dock
   killall Finder
 fi
+
+configure_ssh
