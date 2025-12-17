@@ -1,7 +1,13 @@
-autoload -Uz compinit
+autoload -Uz compinit vcs_info
 compinit
+setopt prompt_subst
 
-export PS1='%F{blue}%~ %(?.%F{green}.%F{red})❯%f '
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats ' %F{magenta}(%b)%f'
+zstyle ':vcs_info:git:*' actionformats ' %F{magenta}(%b|%a)%f'
+
+precmd() { vcs_info }
+export PS1='%F{blue}%~${vcs_info_msg_0_} %(?.%F{green}.%F{red})❯%f '
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
