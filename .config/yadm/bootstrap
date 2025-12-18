@@ -14,7 +14,7 @@ install_brew() {
 
   if [ -f "$HOME/.Brewfile" ]; then
     echo "Updating Homebrew bundle"
-    brew bundle --global --cleanup
+    # brew bundle --global --cleanup
   fi
 }
 
@@ -166,6 +166,7 @@ configure_github() {
 
   echo "Uploading SSH key to GitHub: $HOME/.ssh/id.pub"
   gh ssh-key add "$HOME/.ssh/id.pub" --title "$title" >/dev/null 2>&1 || true
+  gh ssh-key add "$HOME/.ssh/id.pub" --title "$title" --type signing >/dev/null 2>&1 || true
 }
 
 system_type=$(uname -s)
